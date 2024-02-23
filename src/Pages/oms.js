@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation'; // Navigation 컴포넌트 import
 import { useState } from 'react';
+import { useTable } from 'react-table';
 
 function Header(props) {
   console.log('props', props, props.title)
@@ -40,12 +41,20 @@ function Article(props) {
   </article>
 }
 
-function Create(){
+function Create(props){
   return <article>
     <h2>Create</h2>
-    <form>
+    <br>
+    </br>
+    <form onSubmit={event=>{
+      event.preventDefault();
+      const title = event.target.title.value;
+      const body = event.target.title.value;
+      props.onCreate(title,body);
+    }}>
       <p><input type='text' name='title' placeholder='title' /></p>
       <p><textarea name='body' placeholder='body'></textarea></p>
+      <p><input type='submit' value='Create'></input></p>
     </form>
   </article>
 }
@@ -57,12 +66,12 @@ function Oms() {
     
     const [mode, setMode] = useState('WELCOME');
     const [id, setId] = useState(null);
-
-    const topics =[
+    const [nextId, setNextId] = useState(4);
+    const [topics,setTopics] =useState([
       {id:1, title:'test1', body:'test1'},
       {id:2, title:'test2', body:'test2'},
       {id:3, title:'test3', body:'test3'}
-  ]
+  ]);
   let content = null;
   if(mode==='WELCOME'){
     content = <Article title='WELCOME' body='WELCOME'></Article>
@@ -77,7 +86,13 @@ function Oms() {
     }
     content = <Article title={title} body={body}></Article>
   } else if(mode==='CREATE'){
-    content = <Create></Create>
+    content = <Create onCreate={(_title,_body)=>{
+    const newTopic ={id: nextId,title:_title,body:_body};
+    const newTopics = [...topics];
+    newTopics.push(newTopic);
+    setTopics(newTopics);
+    
+    }}></Create>
   }
   return (
     <div>
