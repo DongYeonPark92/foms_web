@@ -44,8 +44,8 @@ function Create(){
   return <article>
     <h2>Create</h2>
     <form>
-      <input type='text' name='title' placeholder='title' />
-      <textarea name='body' placeholder='body'></textarea>
+      <p><input type='text' name='title' placeholder='title' /></p>
+      <p><textarea name='body' placeholder='body'></textarea></p>
     </form>
   </article>
 }
@@ -92,7 +92,7 @@ function Oms() {
     <a href="/create" onClick={event=>{
       event.preventDefault();
       setMode('CREATE');
-    }}>Create 바보바보바보</a>
+    }}>Create</a>
     </div>
   );
 }
