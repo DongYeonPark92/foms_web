@@ -89,12 +89,11 @@ function Oms() {
       setId(_id);
     }}></Navigate>
     {content}
-    <a href="/create" onClick={event=>
+    <a href="/create" onClick={event=>{
       event.preventDefault();
       setMode('CREATE');
-    }>Create</a>
+    }}>Create 바보바보바보</a>
     </div>
-
   );
 }
 
