@@ -30,7 +30,6 @@ async function testConnection() {
     // db.close(); // 연결 종료
   }
 
-
 testConnection(); // 연결 테스트 실행
 
 module.exports = db;
