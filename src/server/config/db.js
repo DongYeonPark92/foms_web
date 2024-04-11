@@ -1,15 +1,15 @@
-require('dotenv').config();
+require('dotenv').config(); // 환경 변수를 불러오는데 필요
 const mssql = require('mssql');
 
 const config = {
-    user: 'eusr_anritsu',
-    password: 'pwd_anritsu_1206',
-    server: '61.251.168.100',
-    database: 'ZEX_ANRITSU',
-    port : 1433,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_DATABASE,
+    port: parseInt(process.env.DB_PORT, 10),
     options: {
-      encrypt: true, // 또는 서버의 요구 사항에 따라 false로 설정
-      trustServerCertificate: true // 이 줄을 추가
+    encrypt: true, // 서버의 요구 사항에 따라 true 또는 false로 설정
+    trustServerCertificate: true // 이 줄을 추가
   }
 };
 

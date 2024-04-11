@@ -44,8 +44,11 @@ function App() {
       if (response.status === 401) {
         setLoginError(data.message); // 상태 업데이트
         alert('사용자 ID와 PW가 일치하지 않습니다. \nAMS와 동일한 계정 사용 부탁드립니다!'); // 메시지 박스 띄우기
-       } else if (response.status === 200) {
-        setLoginError(data.message); // 상태 업데이트
+       } 
+       else if (response.status === 200) {
+        // JWT를 로컬 스토리지에 저장
+        localStorage.setItem('token', data.accessToken);
+        setLoginError(''); // 상태 업데이트
         navigate('/oms')
        }
       } catch (error) {

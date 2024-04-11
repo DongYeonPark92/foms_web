@@ -1,5 +1,7 @@
+require('dotenv').config(); // 환경 변수를 불러오는데 필요
 const mssql = require('mssql');
 const db = require('../config/db');
+const jwt = require('jsonwebtoken');
 
 exports.login = async (req, res) => {
   try {
@@ -11,10 +13,21 @@ exports.login = async (req, res) => {
     const result = await request.execute('[dbo].[SP100_User접속]');
 
     if (result.recordset && result.recordset.length > 0) {
-      res.status(200).json({
-        message: 'Login successful',
-        user: result.recordset[0]
+      const user = result.recordset[0]; // 사용자 정보
+      console.log(process.env.ACCESS_TOKEN_SECRET);
+      const accessToken = jwt.sign(
+        { userId: user.사용자ID, username: user.사용자명 }, // Payload
+        process.env.ACCESS_TOKEN_SECRET, // .env에서 설정한 비밀키
+        { expiresIn: '1h' } // 옵션: 토큰의 유효 시간
+      );
+
+      res.json({
+        accessToken // 클라이언트에 accessToken 전송
       });
+      // res.status(200).json({
+      //   message: 'Login successful',
+      //   user: result.recordset[0]
+      // });
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }

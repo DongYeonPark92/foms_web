@@ -1,7 +1,11 @@
+require('dotenv').config(); // 환경 변수를 불러오는데 필요
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const app = express();
+
+//console.log(process.env); // 모든 환경 변수 출력
+//console.log(process.env.ACCESS_TOKEN_SECRET); // 특정 환경 변수 출력
 
 app.use(express.json());
 app.use(cors());
