@@ -1,0 +1,79 @@
+.sidebar {
+  width: 280px;
+  background-color: #4ea685;
+  padding: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-logo .Anritsu-logo {
+  display: flex;
+  margin: 10px 0px 30px 25px;
+  align-items: center;
+}
+
+.sidebar-logo img {
+  width: 200px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+.nav-link {
+  display: flex;
+  padding: 10px;
+  color: white;
+  text-align: left;
+  border: none;
+  background: none;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 2;
+  font-size: 18px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.submenu a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  color: white;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  color: #fff;
+  border-top: 1px solid ivory;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

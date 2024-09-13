@@ -1,0 +1,11 @@
+.list-group {
+  list-style: none;
+  padding: 0;
+}
+
+.list-group-item {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+}

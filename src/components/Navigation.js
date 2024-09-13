@@ -1,33 +1,39 @@
-// Navigation.js
-import React from 'react';
-import styles from '../CSS/Navigation.module.css'; // CSS 모듈을 import
+import React from "react";
+import "../CSS/Sidebar.css";
 
-const Navigation = () => {
+const Sidebar = () => {
   return (
-    <nav className={styles.navigation}>
-      <div className={styles.logo}></div>
-      <ul className={styles.navList}>
-        <li>OMS</li>
-        <li>ABOUT</li>
-        <li>PORTFOLIO</li>
-        <li>SERVICES</li>
-        <li>CONTACT</li>
-        <li>BLOG</li>
-        <li>CAREERS</li>
-        <li>CLIENT PORTAL</li>
-        <li>CONSULTING</li>
-        <li>EVENTS</li>
-        <li>LEARN</li>
-        <li>SHOP</li>
+    <div className="sidebar">
+      <a href="#" className="sidebar-logo"></a>
+      <ul className="nav">
+        <li>
+          <a href="#" className="nav-link active">
+            Home
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link">
+            Orders
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link">
+            Products
+          </a>
+        </li>
+        <li>
+          <a href="#" className="nav-link">
+            Customers
+          </a>
+        </li>
       </ul>
-      <div className={styles.search}>
-        <input type="text" placeholder="Search" />
-        <button type="submit">
-          <i className="fa fa-search"></i> {/* Font Awesome 검색 아이콘 */}
-        </button>
-      </div>
-    </nav>
+    </div>
   );
 };
 
-export default Navigation;
+export default Sidebar;

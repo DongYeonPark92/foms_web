@@ -238,7 +238,7 @@ function Oms() {
   return (
     <div>
       <Header
-        title="바보1"
+        title="화이팅~~~옹"
         onChangeMode={() => {
           setMode("WELCOME");
         }}
