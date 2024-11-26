@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../CSS/Sidebar.css";
+import "../../CSS/sidebars/Sidebar.css";
 import FMS from "./FMS";
 import OMS from "./OMS";
 import DMS from "./DMS";
@@ -16,61 +16,39 @@ const Sidebar = () => {
   });
 
   const toggleMenu = (menu) => {
-    setIsOpen((prevState) => ({
-      ...prevState,
-      [menu]: !prevState[menu],
-    }));
+    setIsOpen((prevState) => {
+      const updatedState = Object.keys(prevState).reduce((acc, key) => {
+        acc[key] = key === menu ? !prevState[key] : false;
+        return acc;
+      }, {});
+      return updatedState;
+    });
   };
+
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <div className="sidebar">
-      <a href="/" className="sidebar-logo">
-        <img
-          src={`${process.env.PUBLIC_URL}/images/anritsu.png`}
-          alt="Company Logo"
-          className="Anritsu-logo"
-        />
-      </a>
+      <div className="sidebar_logo">
+        <a href="/" className="sidebar-logo">
+          {/* 로딩 중일 때 로고 대신 텍스트 또는 스피너를 표시 */}
+          {isLoading && <div className="loading">Loading...</div>}
+          <img
+            src={`${process.env.PUBLIC_URL}/images/anritsu.png`}
+            alt="Company Logo"
+            className="Anritsu-logo"
+            onLoad={() => setIsLoading(false)}
+            style={{ display: isLoading ? "none" : "block" }}
+          />
+        </a>
+      </div>
       <ul className="nav">
         <FMS isOpen={isOpen.FMS} toggleMenu={toggleMenu} />
         <OMS isOpen={isOpen.OMS} toggleMenu={toggleMenu} />
         <DMS isOpen={isOpen.DMS} toggleMenu={toggleMenu} />
         <IMS isOpen={isOpen.IMS} toggleMenu={toggleMenu} />
+        <User isOpen={isOpen.User} toggleMenu={toggleMenu} />
       </ul>
-      <div className="user-profile">
-        <img
-          src="path_to_avatar_image.jpg"
-          alt="User Avatar"
-          className="user-avatar"
-        />
-        <div className="dropdown">
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => toggleMenu("account")}
-              aria-expanded={isOpen.account}
-            >
-              Dongyeon Park
-            </button>
-            {isOpen.account && (
-              <ul className="submenu">
-                <li>
-                  <a href="#">New...</a>
-                </li>
-                <li>
-                  <a href="#">Profile</a>
-                </li>
-                <li>
-                  <a href="#">Settings</a>
-                </li>
-                <li>
-                  <a href="#">Sign out</a>
-                </li>
-              </ul>
-            )}
-          </li>
-        </div>
-      </div>
     </div>
   );
 };

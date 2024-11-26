@@ -1,23 +1,24 @@
 .sidebar {
-  width: 280px;
-  background-color: #4ea685;
-  padding: 10px;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 280px;
+  height: 100vh; /* 높이를 전체 화면으로 설정 */
+  background-color: #4ea685;
+  padding: 10px;
+  color: white;
 }
 
-.sidebar-logo .Anritsu-logo {
+.sidebar-logo {
   display: flex;
-  margin: 10px 0px 30px 25px;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.sidebar-logo img {
-  width: 200px;
-  height: 40px;
-  margin-right: 10px;
+.Anritsu-logo {
+  width: 200px; /* 원하는 크기로 설정 */
+  height: auto;
 }
 
 .nav {
@@ -27,21 +28,20 @@
 
 .nav-link {
   display: flex;
-  padding: 10px;
+  align-items: center;
+  padding: 15px 10px;
   color: white;
   text-align: left;
-  border: none;
   background: none;
   width: 100%;
   text-decoration: none;
   cursor: pointer;
-  line-height: 2;
-  font-size: 18px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* 글씨 크기 */
 }
 
 .nav-link:hover {
   background-color: #495057;
+  border-radius: 5px; /* 약간의 테두리 라운드 */
 }
 
 .submenu {
@@ -54,20 +54,19 @@
 }
 
 .submenu a {
-  color: #adb5bd;
+  color: ivory;
   text-decoration: none;
 }
 
 .submenu a:hover {
-  color: white;
+  color: black;
 }
 
 .user-profile {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  color: #fff;
+  padding: 15px;
+  color: white;
   border-top: 1px solid ivory;
 }
 
@@ -76,4 +75,10 @@
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
 }

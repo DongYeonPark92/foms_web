@@ -1,29 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 
-const User = ({ isOpen, toggleMenu }) => {
+const User = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <li>
-      <button
-        className="nav-link"
-        onClick={() => toggleMenu("USER")}
-        aria-expanded={isOpen}
-      >
-        Dongyeon Park
-      </button>
-      {isOpen && (
-        <ul className="submenu">
-          <li>
-            <a href="#">Overview</a>
-          </li>
-          <li>
-            <a href="#">Updates</a>
-          </li>
-          <li>
-            <a href="#">Reports</a>
-          </li>
-        </ul>
-      )}
-    </li>
+    <div className="user-profile">
+      <img src="" alt="User Avatar" className="user-avatar" />
+      <div>
+        <button className="nav-link" onClick={toggleMenu}>
+          Dongyeon Park
+        </button>
+        {isOpen && (
+          <ul className="dropdown-menu">
+            <li>
+              <a href="#">New Project</a>
+            </li>
+            <li>
+              <a href="#">Settings</a>
+            </li>
+            <li>
+              <a href="#">Profile</a>
+            </li>
+            <li>
+              <a href="#">Sign Out</a>
+            </li>
+          </ul>
+        )}
+      </div>
+    </div>
   );
 };
 

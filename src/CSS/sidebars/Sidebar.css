@@ -1,0 +1,120 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 280px;
+  height: 100vh; /* 전체 화면 높이 */
+  background-color: #4ea685;
+  padding: 10px;
+  color: white;
+}
+.sidebar_logo {
+  border-bottom: 1px dashed ivory;
+}
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* 로고 아래 여백 */
+}
+
+.Anritsu-logo {
+  width: 200px;
+  height: auto;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
+  flex-grow: 1; /* 남는 공간을 메뉴가 채우도록 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 메뉴가 중앙에 위치 */
+  margin-top: 20px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  color: white;
+  text-align: left;
+  background: none;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+}
+
+.nav-link:hover {
+  background-color: #495057;
+  border-radius: 5px;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 20px;
+  font-size: small;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.submenu a {
+  color: ivory;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  color: gray;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  margin-top: auto; /* 프로필을 하단에 고정 */
+  border-top: 1px dashed ivory;
+  position: relative;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  bottom: 100%; /* 부모 요소 기준으로 위로 배치 */
+  right: 10; /* 버튼과 왼쪽 맞춤 */
+  padding: 10px;
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  min-width: 160px; /* 드롭다운 메뉴의 최소 너비 설정 */
+  transform: translateY(-10px); /* 살짝 위로 올려서 버튼과 라인 맞춤 */
+  top: -120px; /* 버튼 위에 드롭다운을 배치 */
+}
+
+.dropdown-menu a {
+  color: ivory;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  color: gray;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

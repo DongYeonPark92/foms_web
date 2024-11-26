@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../CSS/login.css";
 import { useNavigate } from "react-router-dom";
 
-function App() {
+function LogIn() {
   const [isSignIn, setIsSignIn] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -181,4 +181,4 @@ function App() {
   );
 }
 
-export default App;
+export default LogIn;

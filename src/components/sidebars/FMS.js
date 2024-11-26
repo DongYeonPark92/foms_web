@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FMS = ({ isOpen, toggleMenu }) => {
+  const [showTable, setShowTable] = useState(false); // FMSTable 표시 여부 상태 추가
   return (
     <li>
       <button
@@ -13,7 +14,7 @@ const FMS = ({ isOpen, toggleMenu }) => {
       {isOpen && (
         <ul className="submenu">
           <li>
-            <a href="#">Overview</a>
+            <a href="#">Main</a>
           </li>
           <li>
             <a href="#">Updates</a>
